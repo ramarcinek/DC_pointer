@@ -1,0 +1,348 @@
+/*@import './node_modules/bootstrap/scss/variables';
+@import './node_modules/bootstrap/scss/mixins';
+@import './node_modules/bootstrap/scss/normalize';
+@import './node_modules/bootstrap/scss/grid';*/
+
+@import './node_modules/bootstrap/scss/bootstrap';
+
+$navBlue: #238FE5;
+$facebookColor: #3b5998;
+$youtubeColor: #bb0000;
+$instagramColor: #e95950;
+$burger-menuColor: #404040;
+$pointerGray: #939392;
+$darkNavBlue: #127ED4;
+
+
+/* Media Query */
+
+@mixin breakpoint($point) {
+	@if $point == tablet {
+ 		@media screen and (max-width: 880px) { @content ; }
+	}
+	@else if $point == mobile {
+		@media screen and (max-width: 495px) { @content ; }
+	}
+}
+
+
+
+header
+	nav {
+		height: 50px;
+		background-color: $navBlue;
+		transition: .5s;
+		@include breakpoint(tablet) {
+			height: 75px;
+			text-align: center;
+		}
+	}
+	.sticky {
+		background-color: #fff;
+		top: 0;
+		left: 0;
+		position: fixed;
+		width: 100%;
+	}
+	.sticky-burger-menu {
+		top: 5%;
+		left: 0;
+		position: fixed;
+		width: 100%;
+	}
+	.sticky-dropDown-menu {
+		@extend .sticky-burger-menu;
+		top: 11.4%;
+	}
+		.slogan {
+			color: #fff;
+			line-height: 300%;
+			margin-left: 8%;
+			@include breakpoint(tablet) {
+				font-size: 20px;
+				line-height: 150%;
+			}
+		}
+		.sticky-item-color {
+			color: $navBlue;
+		}
+		.burger-menu {
+			display: none;
+			height: 50px;
+			background-color: $burger-menuColor;
+			cursor: pointer;
+			@include breakpoint(mobile) {
+				display: block;
+			}
+		}
+		.fa-bars {
+			float: right;
+			color: #fff;
+			font-size: 1.5rem;
+			position: relative;
+			top: 21%;
+			right: 3%;
+		}
+		ul {
+			float: right;
+			margin: 0 13% 0 0;
+			padding: 0;
+			@include breakpoint(tablet) {
+				float: none;
+				margin: 0 auto;
+			}
+			@include breakpoint(mobile) {
+				margin: 0;
+      			padding: 0;
+      			background-color: #505050;
+      			display: none;
+			}
+		}
+		 li {
+		 	display: inline-block;
+		 	color: #fff;
+		 	font-size: 14px;
+		 	line-height: 350%;
+		 }
+		 .phone-li, .mail-li {
+		 	margin-right: 25px;
+		 	@include breakpoint(tablet) {
+		 		font-size: 16px;
+		 	}
+		 	@include breakpoint(mobile) {
+		 		display: block;
+      			width: 100%;
+      			float: left;
+      			margin: 0;
+      			padding: 0;
+		 	}
+		 }
+		 	a {
+		 		text-decoration: none;
+		 		color: #fff;
+		 	}
+		 	.fa-phone {
+		 		font-size: 22px;
+		 		margin-right: 10px;
+		 		transition: .3s;
+		 		@include breakpoint(tablet) {
+		 			font-size: 16px;
+		 		}
+		 	}
+		 	.fa-envelope-o, .fa-facebook, .fa-instagram, .fa-youtube {
+				@extend .fa-phone;
+		 	}
+		 	.fa-facebook {
+		 		&:hover {
+		 			color: $facebookColor;
+		 			transform: scale(1.2);
+		 		}
+		 	}
+		 	.fa-instagram {
+		 		&:hover {
+		 			@extend .fa-facebook;
+		 			color: $instagramColor;
+		 		}
+		 	}
+		 	.fa-youtube {
+		 		&:hover {
+		 			@extend .fa-facebook;
+		 			color: $youtubeColor;
+		 		}
+		 	}
+	.jumbo {
+		background-image: url('images/6.png');
+		width: 100%;
+		height: calc(100vh - 50px);
+		background-size: cover;
+		background-position: center;
+		overflow: hidden;
+	}
+		.DC-logo {
+			margin: 1% 0 0 8%;
+			font-size: 45px;
+			display: inline-block;
+			@include breakpoint(tablet) {
+				font-size: 35px;
+    			margin-top: 4%;
+			}
+			@include breakpoint(mobile) {
+				display: none;
+			}
+		}
+			.DC {
+				color: $navBlue;
+			}
+			.pointer {
+				color: $pointerGray;
+				font-size: 40px;
+				@include breakpoint(tablet) {
+					font-size:30px;
+				}
+			}
+		.nav-list {
+			margin: 1% 14% 0 0;
+			@include breakpoint(tablet) {
+				display: block;
+    			margin-left: 8%;
+			}
+			@include breakpoint(mobile) {
+				width: 100%;
+				margin: 0;
+				display: none;
+			}
+		}
+		.open {
+			display: block;
+		}
+			.nav-list > a {
+				padding-right: 20px;
+				text-transform: uppercase;
+				@include breakpoint(tablet) {
+					padding-right: 2%;
+				}
+				@include breakpoint(mobile) {
+					padding: 0;
+				}
+			}
+				.nav-list > a > li {
+					color: $navBlue;
+					transition: .3s;
+					&:hover {
+						color: $darkNavBlue;
+					}
+					@include breakpoint(tablet) {
+						font-size: 14px;
+					}
+					@include breakpoint(mobile) {
+						display: block;
+    					border-bottom: 1px solid $pointerGray;
+    					margin-left: 2%;
+					}
+				}
+				.nav-list > a:nth-child(5) > li {
+					color: $pointerGray;
+				}
+				.nav-list > a:nth-child(6) > li {
+					color: $pointerGray;
+				}
+		.center-slogan {
+			margin-top: 14%;
+			text-align: center;
+			@include breakpoint(mobile) {
+				margin-top: 25%;
+			}
+		}
+			p.center-par {
+				font-size: 50px;
+				color: #fff;
+				@include breakpoint(tablet) {
+					font-size: 35px;
+				}
+			}
+			.center-btn {
+				background-color: $navBlue;
+				color: #fff;
+				font-size: 12px;
+				padding: 20px;
+				border: none;
+				width: 200px;
+				transition: .3s;
+				&:hover {
+					background-color: $darkNavBlue;
+					cursor: pointer;
+				}
+			}
+			.social-icons-mobile {
+				display: none;
+				@include breakpoint(mobile) {
+					display: block;
+     				margin-top: 10%;
+				}
+			}
+				.social-icons-mobile > a > .fa {
+					font-size: 25px;
+     				color: #fff!important;
+				}
+.first-section
+	.about-us {
+		width: 75%;
+		margin: 5% auto;
+		text-align: center;
+	}
+		h1 {
+			color: $navBlue;
+			text-transform: uppercase;
+		}
+		p {
+			color: $pointerGray;
+		}
+	.container
+		.row
+			.four-icons {
+				text-align: center;
+				margin-bottom: 5%;
+			}
+				.four-icons > .fa {
+					color: $navBlue;
+					font-size: 50px;
+					padding: 43px;
+					border: 3px solid $navBlue;
+					border-radius: 50%;
+				}
+				.four-icons > p {
+					margin-top: 15%;
+				}
+footer {
+	background-image: url('images/7.png');
+	background-size: cover;
+	overflow: hidden;
+	background-position: center;
+	height: 400px;
+}
+	.footer-content {
+		margin: 10% 10%;
+		@include breakpoint(tablet) {
+			margin: 5% 10%;
+		}
+		@include breakpoint(mobile) {
+			margin: 1% 10%;
+		}
+	}
+		.footer-content > p {
+			color: #fff;
+			width: 80%;
+			display: inline-block;
+			line-height: 200%;
+			@include breakpoint(tablet) {
+				line-height: 160%;
+			}
+			@media screen and (max-width: 500px) {
+				line-height: 140%;
+				font-size: 15px;
+				height: auto;
+			}
+		}
+		.footer-content > button {
+			color: #fff;
+			background-color: $navBlue;
+			border: 0;
+			width: 200px;
+			padding: 15px;
+			transition: .3s;
+			&:hover {
+				cursor: pointer;
+				background-color: $darkNavBlue;
+			}
+			@include breakpoint(mobile) {
+				padding: 10px;
+				width: 180px;
+			}
+		}
+
+
+
+
+			
+		
+		 			
